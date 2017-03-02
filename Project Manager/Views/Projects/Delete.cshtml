@@ -1,0 +1,48 @@
+﻿@model Project_Manager.Models.Project
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление проекта</h2>
+
+<h3>Вы действительно хотите удалить это?</h3>
+<div>
+    <h4>Проект</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <p>Наименование</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            <p>Дата начала</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            <p>Дата окончания </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться обратно", "Index")
+        </div>
+    }
+</div>

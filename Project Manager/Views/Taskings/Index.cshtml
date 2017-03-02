@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Project_Manager.Models.Tasking>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Список задач</h2>
+
+<p>
+    @Html.ActionLink("Создать новую задачу", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+          <a>Наименование</a>
+        </th>
+        <th>
+            <a>Дата начала</a>
+        </th>
+        <th>
+            <a>Дата окончания</a>
+        </th>
+        <th>
+            <a>Статус</a>
+        </th>
+       
+        <th>
+            <a>Пользователь</a>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

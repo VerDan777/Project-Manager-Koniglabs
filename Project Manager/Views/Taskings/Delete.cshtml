@@ -1,0 +1,64 @@
+﻿@model Project_Manager.Models.Tasking
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление задачи</h2>
+
+<h3>Вы дейстительно хотите удалить это?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <p>Наименование</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            <p>Дата начала</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            <p>Дата окончания</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            <p>Статус</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            <p>Пользователь</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
